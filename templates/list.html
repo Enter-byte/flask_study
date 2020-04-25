@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>图书管理表</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+ <a href="{{url_for('add_Book')}}">添加图书</a>
+  <table border="1" align="center">
+  <tr>
+	<td align="center">ID</td>
+	<td align="center" width = "200px">书名</td>
+	<td align="center" width = "100px">作者</td>
+	<td width="100px" align="center">出版社</td>
+	<td align="center" align="center">出版时间</td>
+	<td align="center" align="center">ISBN</td>
+	<td colspan="3" align="center">操作</td>
+  </tr>
+  {% for r in re %}
+  <tr>
+	<td>{{r[5]}}</td>
+	<td>{{r[4]}}</td>
+	<td>{{r[2]}}</td>
+	<td>{{r[3]}}</td>
+	<td>{{r[1]}}</td>
+	<td>{{r[0]}}</td>
+    <td><a href="{{url_for('showBook',id=r[5])}}">修改</a></td>
+	<td><a href="{{url_for('delBook',id=r[5])}}">删除</a></td>
+	<td><a href="{{url_for('listCopyBook',id=r[5])}}">管理副本</a></td>
+  </tr>
+  {% endfor %}
+  </table>
+ </body>
+</html>
