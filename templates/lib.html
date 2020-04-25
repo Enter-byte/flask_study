@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习学习</title>
+    <link href="{{url_for('static',filename='ico.ico')}}" rel="icon" type="image/x-icon"/>
+</head>
+<body>
+	<h1 align="center">书目检索系统</h1>
+	<form method="post" action="{{url_for('index')}}" target="_blank">
+	<table align="center">
+	<tr>
+		<td><select name="f">
+			<option value="name" selected="selected">书名</option>
+			<option value="author">作者</option>
+		</select></td>
+		<td><input type="text" name="key"></td>
+		<td><input value="查询" type="submit"></td>
+	</tr>
+	</table align = "center">
+	<table border="1" align=center>
+		{% for r in datalist %}
+		<tr>
+			<td colspan="2" align = "center"><a href="{{url_for('book',id=r[5])}}">书名：{{r[4]}}</a></td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">作者</td>
+			<td align="center" width="200px">{{r[2]}}</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">出版社</td>
+			<td align="center" width="200px">{{r[3]}}</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">出版日期</td>
+			<td align="center" width="200px">{{r[1]}}</td>
+		</tr>
+		<tr>
+			<td colspan="2" ><ul>
+				<li>馆藏副本：{{r[6]}}</li>
+				<li>可借副本：{{r[7]}}</li>
+			</ul></td>
+		</tr>
+<!--		<tr>-->
+<!--			<td colspan="3">2、第二本书的书名</td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td><img width="60" src={{url_for('static',filename='book/2.jpg')}}></td>-->
+<!--			<td><ul>-->
+<!--				<li>第二本书作者</li>-->
+<!--				<li>第二本书出版社</li>-->
+<!--			</ul></td>-->
+<!--			<td><ul>-->
+<!--				<li>馆藏副本：4</li>-->
+<!--				<li>可借复本：1</li>-->
+<!--			</ul></td>-->
+<!--		</tr>-->
+		{% endfor %}
+		</table>
+		</form>
+<!--    	<img width="100" src="{{url_for('static',filename='pic.jpg')}}" title="这是想做成ioc的图片"> <br>-->
+<!--	这是一个图片。-->
+</body>
+</html>

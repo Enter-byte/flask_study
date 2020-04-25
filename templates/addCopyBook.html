@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>添加副本</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+   <form method="post" action="{{url_for('saveCopyBook')}}" target="_blank">
+	<table align="center" border="1">
+  <tr>
+	<td>书本编号</td>
+	<td><input type="text" name="bookid" ></td>
+  </tr>
+  <tr>
+	<td>副本编号</td>
+	<td><input type="text" name="copybookid"></td>
+  </tr>
+  <tr>
+	<td>存放位置</td>
+	<td><select name="place">
+		<option value="" selected>选择存放位置</option>
+		<option value="图书馆">图书馆</option>
+		<option value="信管资料室">信管资料室</option>
+	</select></td>
+  </tr>
+  <tr>
+	<td>状态</td>
+	<td><input type="text" name="status"></td>
+  </tr>
+  <tr>
+	<td>是否可借</td>
+	<td><input type="text" name="is_borrow"></td>
+  </tr>
+  <tr>
+	<td colspan="2" align="center"><input type="submit">&nbsp;&nbsp;<input type="reset"></td>
+  </tr>
+  </table>
+  </form>
+ </body>
+</html>
